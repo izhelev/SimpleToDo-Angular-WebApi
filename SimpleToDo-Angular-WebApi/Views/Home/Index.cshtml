@@ -1,0 +1,16 @@
+﻿<div id="todoApp" ng-app="TodoApp">
+    <div ng-controller="TodoListController">
+        <input id="newItemInput" placeholder="Enter item" ng-model="newItem" /><button ng-disabled="!newItem" ng-click="addItem(newItem)">add</button>
+        <ul>
+            <li ng-repeat="item in todoItems">
+                <input id="itemCompleted" type="checkbox" ng-model="item.completed" ng-change="toggleCompleteItem(item)" /> <span ng-class="{itemCompleted: item.completed}">{{item.title}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+@section Scripts{
+   @Scripts.Render("~/bundles/angular")
+   @Scripts.Render("~/bundles/TodoApp")
+}
